@@ -275,7 +275,7 @@ def main():
 
     # Set project name
     os.environ["TOKENIZERS_PARALLELISM"] = "false"
-    os.environ["WANDB_PROJECT"] = "unified_question_generation"
+    os.environ["WANDB_PROJECT"] = "question_generation"
     if data_args.wandb_run_id:
         os.environ["WANDB_RESUME"] = "allow"
         os.environ["WANDB_RUN_ID"] = data_args.wandb_run_id

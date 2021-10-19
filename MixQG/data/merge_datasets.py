@@ -34,8 +34,8 @@ def main(args):
         "test": test_dataset
     })
 
-    if not os.path.isdir(f"{DIR}/unified"):
-        combined.save_to_disk(f"{DIR}/unified")
+    if not os.path.isdir(f"{DIR}/mixqg"):
+        combined.save_to_disk(f"{DIR}/mixqg")
 
 
 if __name__ == "__main__":

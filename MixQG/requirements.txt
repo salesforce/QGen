@@ -1,10 +1,11 @@
 transformers==4.9.1
-torch==1.8.0
-nltk==3.5
-datasets==1.10.0
+nltk>=3.6.4
+numpy>=1.19.1
+datasets==1.13.3
 rouge_score==0.0.4
 en-core-web-sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.3.1/en_core_web_sm-2.3.1.tar.gz
-sacrebleu==2.0.0
+sacrebleu==1.4.12
+spacy==2.3.1
 bert-score==0.3.10
 deepspeed==0.5.4
 wandb==0.11.0

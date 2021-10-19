@@ -48,12 +48,13 @@ DIR=/PATH/TO/DATASET/FOLDER
 python data/preprocess_datasets.py --dir $DIR
 python data/merge_datasets.py --dir $DIR
 ```
+The `DIR` folder will contain each of the preprocessed in-domain and out-of-domain datasets as well as the final `mixqg` dataset.
 
 # Training
 ```
 num_gpus=4
 model_name=t5-base
-dataset=mixqg
+dataset=${DIR}/mixqg
 output_dir=mixqg-base
 lr=3e-5
 bs=32
@@ -63,8 +64,8 @@ bs=32
 # Fine-tuning
 ```
 num_gpus=4
-model_name=mixqg-base
-dataset=squad
+model_name=Salesforce/mixqg-base
+dataset=${DIR}/squad
 output_dir=mixqg-base-squad
 lr=3e-6
 bs=32
@@ -76,8 +77,8 @@ bs=32
 ```
 gpu=0
 model=Salesforce/mixqg-base
-dataset=squad
-output_dir=mixqg-base-squad
+dataset=${DIR}/squad
+output_dir=mixqg-base-squad-eval
 bs=32
 
 ./eval.sh $gpu $model $dataset $output_dir $bs
