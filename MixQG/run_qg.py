@@ -1,3 +1,22 @@
+#!/usr/bin/env python
+# coding=utf-8
+# Copyright 2021 The HuggingFace Team. All rights reserved.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+"""
+Fine-tuning script adapted for question generation.
+"""
+
 import logging
 import os
 import sys
@@ -11,12 +30,12 @@ from bert_score import BERTScorer
 from datasets import load_dataset, load_from_disk, load_metric
 from filelock import FileLock
 from transformers import (AutoConfig, AutoModelForSeq2SeqLM, AutoTokenizer,
-                          DataCollatorForSeq2Seq, HfArgumentParser,
-                          Seq2SeqTrainer, Seq2SeqTrainingArguments, set_seed, EarlyStoppingCallback)
+                          DataCollatorForSeq2Seq, EarlyStoppingCallback,
+                          HfArgumentParser, Seq2SeqTrainer,
+                          Seq2SeqTrainingArguments, set_seed)
 from transformers.file_utils import is_offline_mode
 from transformers.trainer_utils import get_last_checkpoint, is_main_process
 from transformers.utils import check_min_version
-
 
 # Will error if the minimal version of Transformers is not installed. Remove at your own risks.
 check_min_version("4.6.0.dev0")
@@ -183,15 +202,18 @@ class DataTrainingArguments:
     )
     question_column: Optional[str] = field(
         default="question",
-        metadata={"help": "The name of the column in the datasets containing the question."},
+        metadata={
+            "help": "The name of the column in the datasets containing the question."},
     )
     answer_column: Optional[str] = field(
         default="answer",
-        metadata={"help": "The name of the column in the datasets containing the answer."},
+        metadata={
+            "help": "The name of the column in the datasets containing the answer."},
     )
     context_column: Optional[str] = field(
         default="context",
-        metadata={"help": "The name of the column in the datasets containing the context."},
+        metadata={
+            "help": "The name of the column in the datasets containing the context."},
     )
     early_stopping_patience: Optional[int] = field(
         default=15,
@@ -283,9 +305,6 @@ def main():
     # Get the datasets: you can either provide your own CSV/JSON training and evaluation files (see below)
     # or just provide the name of one of the public datasets available on the hub at https://huggingface.co/datasets/
     # (the dataset will be downloaded automatically from the datasets Hub).
-    #
-    # For CSV/JSON files this script will use the first column for the full texts and the second column for the
-    # summaries (unless you specify column names for this with the `text_column` and `summary_column` arguments).
     #
     # In distributed training, the load_dataset function guarantee that only one local process can concurrently
     # download the dataset.
@@ -470,7 +489,8 @@ def main():
 
         # rougeLSum expects newline after each sentence
         rouge_preds = ["\n".join(nltk.sent_tokenize(pred)) for pred in preds]
-        rouge_labels = ["\n".join(nltk.sent_tokenize(label)) for label in labels]
+        rouge_labels = ["\n".join(nltk.sent_tokenize(label))
+                        for label in labels]
 
         return {
             "bleu": [preds, bleu_labels],
@@ -492,7 +512,8 @@ def main():
         # Some simple post-processing
         decoded = postprocess_text(decoded_preds, decoded_labels)
 
-        result = rouge.compute(predictions=decoded["rouge"][0], references=decoded["rouge"][1], use_stemmer=True)
+        result = rouge.compute(
+            predictions=decoded["rouge"][0], references=decoded["rouge"][1], use_stemmer=True)
         # Extract a few results from ROUGE
         result = {key: value.mid.fmeasure *
                   100 for key, value in result.items()}
@@ -502,10 +523,12 @@ def main():
         result["gen_len"] = np.mean(prediction_lens)
         result = {k: round(v, 4) for k, v in result.items()}
 
-        bleu_result = bleu.compute(predictions=decoded["bleu"][0], references=decoded["bleu"][1])
+        bleu_result = bleu.compute(
+            predictions=decoded["bleu"][0], references=decoded["bleu"][1])
         result["bleu"] = bleu_result["score"]
 
-        meteor_result = meteor.compute(predictions=decoded["meteor"][0], references=decoded["meteor"][1])
+        meteor_result = meteor.compute(
+            predictions=decoded["meteor"][0], references=decoded["meteor"][1])
         result["meteor"] = meteor_result["meteor"]
 
         P, R, F1 = scorer.score(decoded["meteor"][0], decoded["meteor"][1])
@@ -522,7 +545,8 @@ def main():
         tokenizer=tokenizer,
         data_collator=data_collator,
         compute_metrics=compute_metrics if training_args.predict_with_generate else None,
-        callbacks=[EarlyStoppingCallback(early_stopping_patience=data_args.early_stopping_patience)],
+        callbacks=[EarlyStoppingCallback(
+            early_stopping_patience=data_args.early_stopping_patience)],
     )
 
     # Training
