@@ -1,9 +1,9 @@
-num_gpus=$1 # 4
-model_name=$2 # t5-base
-dataset=$3 # squad
+num_gpus=$1
+model_name=$2
+dataset=$3
 output_dir=$4
-lr=$5 # 3e-5
-bs=$6 # 32
+lr=$5
+bs=$6
 
 deepspeed --num_gpus=${num_gpus} run_qg.py \
 --model_name_or_path ${model_name} \

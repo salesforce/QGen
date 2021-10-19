@@ -45,7 +45,7 @@ We have released the following checkpoints for pre-trained models described in o
 Preprocess the required datasets and merge them into one in the `DIR` folder.
 ```
 DIR=/PATH/TO/DATASET/FOLDER
-python data/process_datasets.py --dir $DIR
+python data/preprocess_datasets.py --dir $DIR
 python data/merge_datasets.py --dir $DIR
 ```
 

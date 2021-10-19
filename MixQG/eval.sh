@@ -1,7 +1,7 @@
-gpu=$1 # 0
-model=$2 # Salesforce/mixqg-base
-dataset=$3 # squad
-output_dir=$4 # mixqg-base-squad
+gpu=$1
+model=$2
+dataset=$3
+output_dir=$4
 bs=$5
 
 CUDA_VISIBLE_DEVICES=${gpu} python run_qg.py \
