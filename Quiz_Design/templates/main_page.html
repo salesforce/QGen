@@ -1,0 +1,358 @@
+<html>
+    <head>
+        <title>Quiz Design</title>
+    </head>
+    <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+
+    <div id="tutorial_container">
+        <div id="tutorial">
+            <span id="tuto_close_button" onclick="$('#tutorial_container').hide();">&#10006;</span>
+            <div id="tutorial_slider">
+                <div class="tuto_slide">
+                    <div class="title">Introduction Video</div>
+                    <div class="content">
+                        <video id="tuto_video" controls>
+                            <source src="/static/Quiz_Design_Tutorial.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                <div class="tuto_slide">
+                    <div class="title">1. Introduction to the Quiz Design Helper</div>
+                    <div class="content">
+                        Your objective is to design a quiz about a particular topic for a class of students. The procedure is the following:<br /><br />
+                        
+                        1) Select a quiz topic from the  list (for example "Sustainable Energy")<br /><br />
+                        2) The system will load a text about the topic.
+                    </div>
+                </div>
+                <div class="tuto_slide">
+                    <div class="content">
+                        <div class="title">2. Quiz Concepts and Questions</div>
+                        3) Select a concept that you want to quiz your students on (for example a phrase, a figure, or a keyword) and confirm your selection.<br /><br />
+
+                        4) <b>Important:</b> It is recommended to select <b>shorter concepts</b>, and not full sentences to obtain more precise question. Selecting concepts of up to about 8 words is ideal.<br /><br />
+
+                        5) The system will load a list of questions that attempt to quiz students about the selected concept.<br /><br />
+
+                        6) Go over each question, and remove ones you would not include in your quiz. We will next go over types of questions that should be removed.<br /><br />
+
+                        7) <b>Important:</b> you can keep one, multiple or none of the questions (if none of the questions are satisfactory). For each question you remove, you have to choose the reason that the question is unsatisfactory (more on this later).<br />
+                    </div>
+                </div>
+                <div class="tuto_slide">
+                    <div class="title">3. Number of Questions in Quiz</div>
+                    <div class="content">
+                        8) Once you've finalized the question for a concept, select another concept and repeat the question selection process. Try to select <b>8-12</b> concepts per topic to generate long enough quizzes.<br /><br />
+
+                        9) Once you've finished a full quiz set, you can move on to another quiz topic. We have found that in one hour, you should be able to complete the quizzes for 5 topics.
+                    </div>
+                </div>
+                <div class="tuto_slide">
+                    <div class="title">4. Reasons to remove questions</div>
+                    <div class="content">
+                        There are three main reasons to remove a question: (I) <b>Disfluent</b> - the question is not fluent, (II) <b>Wrong Answer</b> - the question is not about the target concept, (III) <b>Inadequate</b> - the question phrasing makes it inadequate for use in a quiz.<br /><br />
+                        We next go over examples of each type of question error type.
+                    </div>
+                </div>
+                <div class="tuto_slide">
+                    <div class="title">5. Error Type I: Question is not Fluent</div>
+                    <div class="content">
+                        The question can be disfluent for several reasons, including: (1) not being phrased as a question, (2) excessive repetition, (3) awkward phrasing, or (4) using the wrong verb tense.
+                        Given the following paragraph:<br />
+                        <i>The mammoth was identified as an extinct species of elephant by Georges Cuvier in 1796.</i>
+                        And targetting the concept: "in 1796". Here are some disfluent questions:
+                        <ul>
+                            <li>The mammoth was identified as an extinct specis that year. (<b>Not phrased as a question</b>)</li>
+                            <li>When did the mammoth the mammoth go instinct? (<b>excessive repetition</b>)</li>
+                            <li>When did the mammoth die? (<b>awkward phrasing</b>)</li>
+                            <li>When will the mammoth go extinct? (<b>Wrong verb tense</b>)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tuto_slide">
+                    <div class="title">6. Error Type II: Question's Answer is not the Concept</div>
+                    <div class="content">
+                        Even though the question is fluent, it could not be about the target concept selected. In our previous example with the following context:<br />
+                        <i>The mammoth was identified as an extinct species of elephant by Georges Cuvier in 1796.</i>
+                        And targetting the concept: "in 1796". Here are some questions that do not target the concept:
+                        <ul>
+                            <li>Who identified the mammoth as an extinct species? (<b>Wrong answer</b>: as the answer is "Georges Cuvier" and not "in 1796")</li>
+                            <li>When did the white rhinoceros go extinct? (<b>Unanswered:</b> in the given context)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tuto_slide">
+                    <div class="title">7. Error Type III: Question Phrasing is Inadequate</div>
+                    <div class="content">
+                        The question might technically be fluent and be answered by the target concept, but the phrasing might feel wrong. In our previous example with the following context:<br />
+                        <i>The mammoth was identified as an extinct species of elephant by Georges Cuvier in 1796.</i>
+                        And targetting the concept: "in 1796". Here are some inadequate questions:
+                        <ul>
+                            <li>On what year did Georges Cuvier identify the mammoth as an extinct species of elephant? (<b>Too specific</b>: on a quiz, we would not reveal this much information in the question)</li>
+                            <li>When did they go extinct? (<b>Not specific enough</b>: the question is vague)</li>
+                            <li>In 1796, when were mammoths identified as extinct? (<b>Reveals the answer</b> to the question)</li>
+                            <li>When did mammoths go exctinct for a second time? (<b>Inconsistent</b>: claims information that is not present in the context)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tuto_slide">
+                    <div class="title">8. High-Level</div>
+                    <div class="content">
+                        If a question feels incorrect, and you would not include it in a quiz for the students, you should remove it from the quiz, and select the closest reason for the removal: Disfluent, Wrong Answer, or Inadequate.<br /><br />
+                        You should try to build quizzes with 8-12 concepts per document.
+
+                        If you have any questions, please contact <b>Philippe Laban</b> on Slack!<br /><br />
+                        <center>
+                            <button class="btn btn-primary" onclick='$("#tutorial_container").hide();'>Close Tutorial</button>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="header">
+        Quiz Design
+        <div id="documents_row">
+            <!-- <select id="labeler_name">
+                <option value="" selected>Select teacher name</option>
+                <option value="phil">Philippe</option>
+                <option value="jason">Jason</option>
+            </select> -->
+            <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+            <div id="documents_list"></div>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button id="open_tutorial_btn" onclick="$('#tutorial_container').show();">Re-Open Tutorial</button>
+        </div>
+    </div>
+    <div id="content">
+        <div id="column1" onclick="verify_selection();">
+            <div class="column_title"></div>
+            <div id="selectable_content"></div>
+
+        </div>
+    </div>
+    <div id="column2">
+        <div class="column_title">
+            Quiz Questions
+        </div>
+        <div id="no_questions">
+            Select a text span to see question options.
+        </div>
+        <div id="loading">
+            <img src="https://c.tenor.com/I6kN-6X7nhAAAAAj/loading-buffering.gif" alt="Loading...">
+        </div>
+        <div id="question_options">
+
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <!-- <script src="/static/live.js"></script> -->
+    <script type="text/javascript">
+        $("head").append(`<link rel="stylesheet" href="/static/main.css?x=${Math.random()}" />`)
+        $("head").append(`<link rel="stylesheet" href="/static/slideshow.css?x=${Math.random()}" />`)
+        var documents = [];
+        var selections = {};
+        var uid = 0, active_uid = -1;
+        var active_doc_id = -1;
+        // var api_url = "http://localhost:5000";
+        var api_url = "";
+        function get_annotator_name() {
+            var url = new URL(window.location.href);
+            annotator_name = url.searchParams.get("anno");
+            if (annotator_name == null) {
+                annotator_name = "";
+                alert("Please reload the page that was sent to you (with annotator name)");
+            }
+            else {
+                load_documents()
+            }
+        }
+        function load_documents() {
+            $.getJSON(`${api_url}/api/load_documents`, function(data) {
+                documents = data.documents;
+                selections = {};
+                for(doc of documents) {
+                    selections[doc.doc_id] = [];
+                }
+                build_document_list();
+            });
+        }
+        function build_document_list() {
+            var documents_HTML = "<select class='document_select' onchange='select_document(this.value);'>";
+            documents_HTML += "<option value=''>Select Quiz Topic</option>";
+            for(var doc of documents) {
+                var selected = (doc.doc_id == active_doc_id) ? "selected" : "";
+                documents_HTML += `<option id='document_title_${doc.doc_id}' value='${doc.doc_id}' ${selected}>${doc.title.replaceAll("_", " ")}</option>`;
+            }
+            documents_HTML += "</select>";
+            $("#documents_list").html(documents_HTML);
+            $(".active_document_title").removeClass("active_document_title")
+            $(`#document_title_${active_doc_id}`).addClass("active_document_title")
+        }
+        function select_document(doc_id) {
+            if(annotator_name.length == 0) {
+                alert("Select a name before starting.");
+                return;
+            }
+            active_doc_id = doc_id;
+            re_run();
+        }
+        function re_run() {
+            var content_HTML = ""+documents[active_doc_id].content;
+            for(var s of selections[active_doc_id]) {
+                var active_class = (active_uid==s.uid)?"active_span":"";
+                if(s.confirmed) {
+                    var elem_HTML = `<span class='confirmed_span ${active_class}' id='span_${s.uid}' onclick='return run_selection(${s.uid});'><span class='cancel_btn' onclick='return run_cancellation(${s.uid});'>&#10006;</span> ${s.selection}</span>`;
+                }
+                else {
+                    var elem_HTML = `<span class='unconfirmed_span ${active_class}' id='span_${s.uid}'>${s.selection} <button onclick='return confirm_selection(${s.uid});'>&#10004;</button></span>`;
+                }
+                content_HTML = content_HTML.replace(s.selection, elem_HTML);
+            }
+            $("#selectable_content").html(content_HTML);
+            $("#column1 .column_title").html(documents[active_doc_id].title.replaceAll("_", " "));
+            $("#column2, #no_questions").show();
+            $("#question_options").hide();
+            build_document_list();
+        }
+        function get_uid_selection(uid) {
+            for(var s of selections[active_doc_id]) {
+                if(s.uid == uid) {
+                    return s;
+                }
+            }
+            return null;
+        }
+        function confirm_selection(uid) {
+            var s = get_uid_selection(uid);
+            s.confirmed = true;
+            re_run();
+
+            run_selection(uid);
+            return false;
+        }
+        function fill_question_options(uid) {
+            var s = get_uid_selection(uid);
+            var questions_HTML = "";
+            var qi = 0;
+            for(var q of s.questions) {
+                var question_class = (q.removed)?"question_removed":"";
+                questions_HTML += `<div id="q_option_${uid}_${qi}" class='q_option ${question_class}'><div class="remove_q" onclick="show_reasons(${uid}, ${qi});">&#10006;</div><div class="question">${q.question}</div><div class="q_reasons"><span onclick="remove_question(${uid}, ${qi}, 'wrong_answer');">Wrong Answer</span><span onclick="remove_question(${uid}, ${qi}, 'wrong_context');">Inadequate</span><br /><span onclick="remove_question(${uid}, ${qi}, 'not_fluent');">Not Fluent</span><span onclick="remove_question(${uid}, ${qi}, 'other');">Other</span></div></div>`;
+                qi ++;
+            }
+            $("#no_questions").hide();
+            $("#question_options").html(questions_HTML).show();
+        }
+        function show_reasons(uid, qi) {
+            var s = get_uid_selection(uid);
+            if(s.questions[qi].removed) {return;}
+
+            if(!$(`#q_option_${uid}_${qi} .q_reasons`).is(":visible")) {
+                $(`#q_option_${uid}_${qi} .q_reasons`).fadeIn(200);
+            }
+            else {
+                $(`#q_option_${uid}_${qi} .q_reasons`).fadeOut(200);
+            }
+
+        }
+        function remove_question(uid, qi, reason) {
+            var s = get_uid_selection(uid);
+            s.questions[qi].reason = reason;
+            if(s.questions[qi].removed) {
+                s.questions[qi].removed = false;
+                s.questions[qi].reason = "";
+            }
+            else {
+                s.questions[qi].removed = true;
+            }
+            send_annotation(uid);
+            fill_question_options(uid);
+        }
+        function send_annotation(uid) {
+            var s = get_uid_selection(uid);
+
+            var request_url = `${api_url}/api/annotate_questions`;
+            var request_data = {
+                "doc_id": active_doc_id,
+                "answer_span": s.selection,
+                "answer_span_idx": s.uid,
+                "questions": JSON.stringify(s.questions),
+                "annotator_name": annotator_name
+            };
+            $.ajax({type: "POST", url: request_url, data: request_data});
+
+        }
+        function hide_options() {
+            $("#question_options").hide();
+            $("#no_questions").show();
+        }
+        function run_cancellation(uid) {
+            var s = get_uid_selection(uid);
+
+            var request_url = `${api_url}/api/cancel_selection`;
+            var request_data = {
+                "doc_id": active_doc_id,
+                "answer_span": s.selection,
+                "annotator_name": annotator_name
+            };
+            $.ajax({type: "POST", url: request_url, data: request_data, success: function(response) {
+                selections[active_doc_id] = selections[active_doc_id].filter(function(s) {
+                    console.log(">>>>", s.uid, uid)
+                    return s.uid != uid;
+                });
+                re_run();
+            }});
+            return false;
+        }
+        function run_selection(uid) {
+            var s = get_uid_selection(uid);
+            active_uid = uid;
+            if(!s.questions) {
+                var request_url = `${api_url}/api/gen_questions`;
+                var request_data = {
+                    "context": documents[active_doc_id].content,
+                    "selection": s.selection,
+                    "doc_id": active_doc_id
+                };
+                $("#loading").show();
+                $("#question_options").hide();
+                $.ajax({type: "POST", url: request_url, data: request_data, success: function(response) {
+                    s.questions = response.response;
+                    $("#loading").hide();
+                    fill_question_options(uid);
+                    send_annotation(uid);
+                }});
+            }
+            else {
+                fill_question_options(uid);
+            }
+            return false;
+        }
+        function filter_unconfirmed() {
+            selections[active_doc_id] = selections[active_doc_id].filter(function(item) {return item.confirmed;});
+        }
+        function verify_selection() {
+            filter_unconfirmed();
+            var selection = window.getSelection().toString().trim();
+            var num_spaces = selection.split(" ").length;
+            if(num_spaces > 10) {
+                alert("You've selected a very long concept. To get more precise questions, we recommend selecting concepts of up to 8 words.");
+            }
+            if(selection && selection.length > 0) {
+                active_uid = -1;
+
+                selections[active_doc_id].push({"selection": selection, "confirmed": false, "uid": uid});
+                uid ++;
+            }
+            re_run();
+        }
+        get_annotator_name();
+        $('#tutorial_slider').slick({"dots": true});
+
+    </script>
+</html>

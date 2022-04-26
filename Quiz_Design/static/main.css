@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,400&display=swap');
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: "Roboto";
+}
+#header {
+    font-size: 40px;
+    line-height: 80px;
+    padding-left: 100px;
+    background: #f0f0f0;
+    margin-bottom: 40px;
+}
+#content {
+    margin: auto;
+    width: 850px;
+}
+#column1 {
+    float: left;
+    line-height: 1.8;
+    width: 500px;
+    margin-bottom: 50px;
+}
+#column2 {
+    display: none;
+    position: fixed;
+    top: 160px;
+    right: 30px;  
+    width: 300px;
+    box-sizing: border-box;
+    padding-left: 30px;
+    background: white;
+}
+.unconfirmed_span {
+    background: rgba(0, 0, 0, 0.07);
+    padding: 5px 10px;
+}
+.unconfirmed_span button {
+    background: white;
+    cursor: pointer;
+}
+.confirmed_span {
+    background: rgba(0, 120, 255, 0.2);
+    padding: 5px 10px;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+}
+.confirmed_span:hover {
+    background: rgba(0, 120, 255, 0.25);
+}
+.active_span {
+    border-bottom: 2px solid rgba(0, 120, 255, 0.75);
+}
+.column_title {
+    font-size: 30px;
+}
+#no_questions {
+    font-style: italic;
+    margin-top: 30px;
+}
+.question_removed {
+    opacity: 0.5;
+}
+.question_removed .question {
+    text-decoration: line-through;
+}
+#loading {
+    display: none;
+}
+#loading img {
+    width: 80px;
+    margin-left: 75px;
+}
+#documents_row {
+    font-size: 25px;
+    height: 40px;
+    background: #e0e0e0;
+    margin-left: -100px;
+    padding-left: 100px;
+    line-height: 40px;
+}
+#documents_list {
+    display: inline-block;
+    cursor: pointer;
+    vertical-align: top;
+}
+.document_title {
+    display: inline-block;
+    font-size: 16px;
+    line-height: 16px;
+    padding: 5px 10px;
+    margin: 7px 10px;
+    background: rgba(0, 0, 0, 0.07);
+    border-radius: 8px;
+}
+.document_title:hover {
+    text-decoration: underline;
+}
+.active_document_title {
+    background: rgba(0, 0, 0, 0.14);
+}
+#labeler_name, .document_select, #open_tutorial_btn {
+    font-size: 18px;
+    margin-left: 10px;
+    margin-top: 8px;
+    padding-left: 7px;
+    background: rgba(0, 0, 0, 0.07);
+    border: 0px;
+    width: 200px;
+}
+#open_tutorial_btn {
+    cursor: pointer;
+}
+.q_option {
+    margin: 10px 0px;
+    padding: 5px;
+    line-height: 1.0;
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+    min-height: 64px;
+    background: #f5f5f5;
+    border-radius: 10px;
+}
+.remove_q {
+    color: #aa0000;
+    cursor: pointer;
+    font-size: 20px;
+    vertical-align: middle;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    transform: translateY(-50%);
+    top: 50%;
+    text-align: right;
+}
+.question {
+    margin-left: 35px;
+}
+.q_reasons {
+    text-align: center;
+    line-height: 2.0;
+    float: right;
+    width: calc( 100% - 20px);
+    display: none;
+}
+.q_reasons span {
+    padding: 0px 10px;
+    cursor: pointer;
+    white-space: nowrap;
+    color: #990000;
+}
+.q_reasons span:hover {
+    text-decoration: underline;
+}
+.cancel_btn {
+    padding-right: 7px;
+    font-weight: bold;
+    font-size: 14px;
+}
