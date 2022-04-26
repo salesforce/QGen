@@ -56,3 +56,15 @@ FLASK_APP=run_flask_server flask run
 ```
 
 The list of Question Generation models used to generate candidate questions can be modified in the first lines of `run_flask_server.py`.
+
+## Cite the work
+
+If you use the data or annotation interface, please cite the work:
+```
+@inproceedings{laban2022quiz,
+  title={Quiz Design Task: Helping Teachers Create Quizzes with Automated Question Generation},
+  author={Laban, Philippe and Wu, Chien-Sheng and Murakhovs'ka, Lidiya and Liu, Wenhao and Xiong, Caiming},
+  booktitle={Findings of the North American Chapter of the Association for Computational Linguistics: NAACL 2022},
+  year={2022}
+}
+```
