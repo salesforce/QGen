@@ -1,4 +1,4 @@
-# MixQG: Neural Question Generation with Mixed Answer Types
+# Quiz Design: Helping Teachers Create Quizzes with Automated Question Generation
 
 This is the official code base for the following paper from Salesforce Research:
 
@@ -20,7 +20,7 @@ Each line is a JSON object. The first entry looks like:
 ```json
 {"doc_id": 0,
  "answer_span": "meets the needs of the present without compromising the ability of future generations to meet their own needs",
- "context": "Energy is sustainable if it "meets the needs of the present without compromising the ability of future generations to meet their own needs".  Most definitions of sustainable energy [...]",
+ "context": "Energy is sustainable if it 'meets the needs of the present without compromising the ability of future generations to meet their own needs'.  Most definitions of sustainable energy [...]",
  "questions": [{"question": "What does energy mean if it is sustainable?",
    "label": 0,
    "reason": "disfluent",
